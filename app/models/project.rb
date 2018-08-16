@@ -1,8 +1,7 @@
 class Project < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :client
 
   def slug
-
-    self.username.downcase.gsub(' ','-')
+    self.clientname.downcase.gsub(' ','-')
   end
 end
