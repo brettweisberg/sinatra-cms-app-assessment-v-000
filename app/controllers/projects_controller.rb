@@ -1,5 +1,4 @@
 
-require "pry"
 class ProjectsController < ApplicationController
 
   get '/projects/new' do # create a new project
@@ -10,5 +9,3 @@ class ProjectsController < ApplicationController
     #binding.pry
 
   end
-
-end
