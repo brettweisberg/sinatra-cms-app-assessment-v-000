@@ -6,6 +6,6 @@ class ProjectsController < ApplicationController
   end
 
   post '/projects' do #create a new project
-    #binding.pry
-
+    binding.pry
+  end
   end
