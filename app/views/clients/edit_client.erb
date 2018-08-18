@@ -1,1 +1,15 @@
-<h1></h1>
+<header>
+  <form  action='/logout'>
+    <input type="submit" value="Logout">
+  </form>
+</header>
+<body>
+<h1>The Studio</h1>
+  <h2> Edit Your Account Info Below:</h2>
+    <form method="POST" action="/edit">
+    Name: <input type="text" name="name" value="<%= @client.name %>">
+    Email: <input type="text" name="email" value="<%= @client.email %>">
+    Password: <input type="text" name="password" value="Please enter new password here">
+    <input type="submit" value="Submit">
+  </form>
+</body>
