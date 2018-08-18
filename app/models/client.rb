@@ -1,9 +1,9 @@
 class Client < ActiveRecord::Base
   has_many :projects
-  has_many :files through: :projects
+  has_many :files, through: :projects
 
   has_secure_password
-  validates :clientname, presence: true
+  validates :name, presence: true
 
   def slug
     self.name.downcase.gsub(' ','-')

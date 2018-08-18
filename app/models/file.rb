@@ -1,5 +1,6 @@
 class File < ActiveRecord::Base
   belongs_to :project
+  belongs_to :client, through: :project
 
   def slug
     self.name.downcase.gsub(' ','-')
