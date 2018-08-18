@@ -56,4 +56,10 @@ end
     end
   end
 
+  get '/clients/:id/edit' do
+    @client = Client.find_by(name: params[:name])
+  end
+
+  post '/clients/:id/edit'
+
 end
