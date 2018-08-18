@@ -46,10 +46,11 @@ end
   end
 
   get '/clients/:id' do #show page
+    #binding.pry
     if logged_in?
       @client = Client.find(session[:client_id])
-      @client_projects = @client.project.all
-      erb :'show_client'
+      @client_projects = @client.projects.all
+      erb :'/clients/show_client'
     else
       erb :'/login'
     end
