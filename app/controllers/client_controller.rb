@@ -10,7 +10,7 @@ class ClientController < ApplicationController
 end
 
   post '/signup' do
-    binding.pry
+  #  binding.pry
     if !params[:name].empty? && !params[:email].empty? && !params[:password].empty?
         client = Client.create(name: params[:name], email: params[:email], password: params[:password])
         session[:client_id] = client.id
@@ -31,7 +31,7 @@ end
   end
 
   post '/login' do #recieve login info
-    @client = Client.find_by(username: params[:username])
+    @client = Client.find_by(name: params[:name])
     if @client && @client.authenticate(params[:password])
     session[:client_id] = @client.id
     redirect "/clients/:id"
