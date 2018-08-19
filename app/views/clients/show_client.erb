@@ -8,7 +8,7 @@
 <body>
   <h1> <%= @client.name %> </h1>
   <h3> Current Projects </h3>
-  <form  action='/clients/:id/edit'>
+  <form  action='/clients/<%= @client.id %>/edit'>
     <input type="submit" value="Edit Account Settings">
   </form>
 </body>
