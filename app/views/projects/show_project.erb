@@ -1,7 +1,11 @@
 <h1>Your Project</h1>
   <form method="POST" action="/projects/<%= @project.id %>/delete">
     <p><%= @project.name %></p>
-  <a href="/tweets/<%= @project.id %>/edit">Edit Project</a>
+
+    <form  action="/tweets/<%= @project.id %>/edit">
+      <input type="submit" value="Edit Project">
+    </form>
+  
   <input id="hidden" type="hidden" name="_method" value="DELETE">
    <input type="submit" value="Delete Project">
 
