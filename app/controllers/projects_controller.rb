@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   post '/projects' do #create a new project
     @client = Client.find(session[:client_id])
+    binding.pry
     if !params[:name].empty? && !params[:description].empty? && !params[:completion_date].empty? && logged_in?
       @project = Project.create(client_id: @client.id, name: params[:name], description: params[:description], completion_date: params[:completion_date])
       redirect "/projects/#{@project.id}"
