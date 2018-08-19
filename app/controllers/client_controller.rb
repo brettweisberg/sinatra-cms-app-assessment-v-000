@@ -59,7 +59,7 @@ end
   get '/clients/:id/edit' do
     if logged_in?
       @client = Client.find_by(name: params[:name])
-      erb :'edit_client'
+      erb :'/clients/edit_client'
     else
       erb :'/login'
     end
