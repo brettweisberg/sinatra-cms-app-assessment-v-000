@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
   post '/projects/:id' do #updates the entry based on the edit route
     @project = Project.find(params[:id])
-    
+
     if !params[:name].empty? && !params[:description].empty? && !params[:project_completion].empty? && logged_in? && current_user.id == @project.client_id
         @project.update(name: params[:name],description: params[:description], project_completion: params[:project_completion])
         redirect "/projects/#{@project.id}"
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   delete '/projects/:id/delete' do
     binding.pry
     @project = Project.find_by(id: params[:id])
-    if current_user.id == @project.user_id && logged_in?
+    if current_user.id == @project.client_id && logged_in?
       @project.delete
       redirect '/login'
     end
