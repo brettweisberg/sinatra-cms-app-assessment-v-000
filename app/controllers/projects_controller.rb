@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
 
   post '/projects/:id' do #updates the entry based on the edit route
     @project = Project.find(params[:id])
+    binding.pry
     if !params[:name].empty? && !params[:description].empty? && !params[:completion_date].empty? && logged_in? && current_user.id == @project.client_id
         @project.update(name: params[:name],description: params[:description], project_completion: params[:project_completion])
         redirect "/projects/#{@project.id}"
