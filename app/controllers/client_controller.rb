@@ -66,9 +66,10 @@ end
   end
 
   post '/clients/:id' do
-      @client = Client.find_by(name: params[:name])
-    if !params[:content].empty? && logged_in? && current_user.id == @tweet.user_id
-      @client = Client.update(name: params[:name], email: params[:email], password: params[:password])
+  #  binding.pry
+      @client = Client.find(session[:client_id])
+    if !params[:name].empty? && !params[:email].empty? && !params[:password].empty? && logged_in? && current_user.id == @client.id
+      @client.update(name: params[:name], email: params[:email], password: params[:password])
       @client.save
       redirect  "/clients/#{@client.id}"
     else
