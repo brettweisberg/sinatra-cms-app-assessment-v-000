@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
   post '/projects' do #create a new project
     @client = Client.find(session[:client_id])
     binding.pry
-    if !params[:name].empty? && !params[:description].empty? && !params[:completion_date].empty? && logged_in?
-      @project = Project.create(client_id: @client.id, name: params[:name], description: params[:description], completion_date: params[:completion_date])
+    if !params[:name].empty? && !params[:description].empty? && !params[:project_completion].empty? && logged_in?
+      @project = Project.create(client_id: @client.id, name: params[:name], description: params[:description], project_completion: params[:project_completion])
       redirect "/projects/#{@project.id}"
     else
       redirect '/login'
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
   post '/projects/:id' do #updates the entry based on the edit route
     @project = Tweet.find(params[:id])
     if !params[:name].empty? && !params[:description].empty? && !params[:completion_date].empty? && logged_in? && current_user.id == @project.client_id
-        @project.update(name: params[:name],description: params[:description], completion_date: params[:completion_date])
+        @project.update(name: params[:name],description: params[:description], project_completion: params[:project_completion])
         redirect "/projects/#{@project.id}"
     else
       redirect "/projects/#{@project.id}/edit"
