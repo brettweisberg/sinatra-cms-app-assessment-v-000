@@ -60,7 +60,7 @@ end
       @client = Client.find_by(name: params[:name])
       erb :'/clients/edit_client'
     else
-      erb :'/client/login'
+      redirect "/login"
     end
   end
 
