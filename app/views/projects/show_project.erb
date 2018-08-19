@@ -2,7 +2,7 @@
   <form method="POST" action="/projects/<%= @project.id %>/delete">
     <h3>  Project Name:<%= @project.name %> </h3>
     <h3>  Project Description:<%= @project.description %></h3>
-    <h3>  Project Completion Date:<%= @project.completion_date %></h3>
+    <h3>  Project Completion Date:<%= @project.project_completion %></h3>
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Project">
   </form>
