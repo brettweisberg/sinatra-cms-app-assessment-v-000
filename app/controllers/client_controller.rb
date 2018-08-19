@@ -65,13 +65,13 @@ end
   end
 
   post '/clients/:id' do
-    if logged_in?
       @client = Client.find_by(name: params[:name])
+    if !params[:content].empty? && logged_in? && current_user.id == @tweet.user_id
       @client = Client.update(name: params[:name], email: params[:email], password: params[:password])
       @client.save
       redirect  "/clients/#{@client.id}"
     else
-      redirect "/login"
+      redirect "/clients/#{@client.id}/edit"
     end
   end
 end
