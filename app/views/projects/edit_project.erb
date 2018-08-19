@@ -1,0 +1,8 @@
+
+<h1>Edit Project Below</h1>
+<form method="POST" action="/projects/<%= @project.id %>">
+  <input type="text" name="name" value="<%= @project.name %>">
+  <input type="text" name="description"  value="<%= @project.description %>">
+  <input type="text" name="project_completion" value="<%= @project.project_completion %>">
+  <input type="submit"  id= "submit" value="Edit Project">
+</form>
