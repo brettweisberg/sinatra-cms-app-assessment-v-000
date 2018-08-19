@@ -7,7 +7,7 @@ class ClientController < ApplicationController
    else
      redirect "/clients/:id" # if they are logged in take them to the user home page
    end
-end
+ end
 
   post '/signup' do
   #  binding.pry
