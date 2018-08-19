@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
   post '/projects/:id' do #updates the entry based on the edit route
     @project = Tweet.find(params[:id])
     if !params[:name].empty? && !params[:description].empty? && !params[:completion_date].empty? && logged_in? && current_user.id == @project.client_id
-        @project.update(name: params[:name], params[:description], params[:completion_date])
+        @project.update(name: params[:name],description: params[:description], completion_date: params[:completion_date])
         redirect "/projects/#{@project.id}"
     else
       redirect "/projects/#{@project.id}/edit"
