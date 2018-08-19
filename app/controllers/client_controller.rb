@@ -57,7 +57,8 @@ end
 
   get '/clients/:id/edit' do
     if logged_in?
-      @client = Client.find_by(name: params[:name])
+    #  binding.pry
+      @client = Client.find(params[:id])
       erb :'/clients/edit_client'
     else
       redirect "/login"
