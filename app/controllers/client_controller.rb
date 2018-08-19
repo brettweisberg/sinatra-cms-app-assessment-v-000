@@ -41,7 +41,7 @@ end
 
   get '/logout' do
     session.clear
-    redirect "/client/login"
+    redirect "/clients/login"
   end
 
   get '/clients/:id' do #show page
