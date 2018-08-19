@@ -45,6 +45,7 @@ class ProjectsController < ApplicationController
   end
 
   delete '/projects/:id/delete' do
+    binding.pry
     @project = Project.find_by(id: params[:id])
     if current_user.id == @project.user_id && logged_in?
       @project.delete
