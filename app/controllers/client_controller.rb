@@ -15,7 +15,6 @@ end
         client = Client.create(name: params[:name], email: params[:email], password: params[:password])
         session[:client_id] = client.id
         client.save
-
         redirect "/clients/:id" # if sign up successful take them to the show page for all proejcts
       else
         redirect "/signup" # if sign up not successful take them back to sign up
@@ -24,7 +23,7 @@ end
 
   get '/login' do
     if !logged_in?
-      erb :'/login' #if not loggged in go to login
+      erb :'/clients/login' #if not loggged in go to login
     else
       redirect "/clients/:id" #if logged in go to show page
     end
@@ -36,13 +35,13 @@ end
     session[:client_id] = @client.id
     redirect "/clients/:id"
     else
-        erb :'/login'
+        redirect "/login"
     end
   end
 
   get '/logout' do
     session.clear
-    redirect "/login"
+    redirect "/client/login"
   end
 
   get '/clients/:id' do #show page
@@ -52,7 +51,7 @@ end
       @client_projects = @client.projects.all
       erb :'/clients/show_client'
     else
-      erb :'/login'
+      erb :'/client/login'
     end
   end
 
@@ -61,7 +60,7 @@ end
       @client = Client.find_by(name: params[:name])
       erb :'/clients/edit_client'
     else
-      erb :'/login'
+      erb :'/client/login'
     end
   end
 
@@ -72,7 +71,7 @@ end
       @client.save
       redirect  "/clients/#{@client.id}"
     else
-      erb :'/login'
+      redirect "/login"
     end
   end
 end
