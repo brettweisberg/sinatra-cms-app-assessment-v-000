@@ -57,13 +57,18 @@ end
   end
 
   get '/clients/:id/edit' do
-    @client = Client.find_by(name: params[:name])
-  end
-
-  post '/clients/:id/edit'
     if logged_in?
       @client = Client.find_by(name: params[:name])
-      @client = Client.update((name: params[:name], email: params[:email], password: params[:password])
+      erb :'edit_client'
+    else
+      erb :'/login'
+    end
+  end
+
+  post '/clients/:id' do
+    if logged_in?
+      @client = Client.find_by(name: params[:name])
+      @client = Client.update(name: params[:name], email: params[:email], password: params[:password])
       @client.save
       redirect  "/clients/#{@client.id}"
     else

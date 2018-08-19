@@ -6,7 +6,7 @@
 <body>
 <h1>The Studio</h1>
   <h2> Edit Your Account Info Below:</h2>
-    <form method="POST" action="/edit">
+    <form method="POST" action="/clients/<%= @client.id %>">
     Name: <input type="text" name="name" value="<%= @client.name %>">
     Email: <input type="text" name="email" value="<%= @client.email %>">
     Password: <input type="text" name="password" value="Please enter new password here">

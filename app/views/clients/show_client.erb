@@ -2,12 +2,13 @@
   <form  action='/logout'>
     <input type="submit" value="Logout">
   </form>
-  <form  action='/clients/:id/edit'>
-    <input type="submit" value="Logout">
-  </form>
+
 
 </header>
 <body>
   <h1> <%= @client.name %> </h1>
   <h3> Current Projects </h3>
+  <form  action='/clients/:id/edit'>
+    <input type="submit" value="Edit Account Settings">
+  </form>
 </body>
